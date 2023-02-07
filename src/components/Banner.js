@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-
-
+import bike from '../assets/bike.jpg'
+import kitchen from '../assets/kitchen.jpg'
+import dress from '../assets/dress.jpg'
 
 const Banner = () => {
     
@@ -17,6 +18,7 @@ const Banner = () => {
   <div className="carousel-inner">
    
     <div className="carousel-item active">
+    <div style={{width:'100%',height:'100%',position:'absolute', background:'#000',opacity:'0.5'}}></div>
         <div className='banner-title'>
         <h1>Get Your stuff </h1>
         <h2>Rental Kitchen Appliances</h2>
@@ -24,25 +26,27 @@ const Banner = () => {
         <button className='banner-btn'>Get Now</button>
         </div>
         
-      <img className="d-block w-100" src="https://wordpress.templatemela.com/woo/WCM05/WCM050119/wp-content/uploads/2019/08/Sub-banner-01.jpg" alt="First slide"/>
+      <img className="d-block w-100" style={{height:'auto'}} src={kitchen} alt="First slide"/>
     </div>
     <div className="carousel-item">
+      <div style={{width:'100%',height:'100%',position:'absolute', background:'#000',opacity:'0.5'}}></div>
     <div className='banner-title'>
         <h1>Get Your stuff </h1>
-        <h2>Rental Decorative Stuffs</h2>
+        <h2>Rental Wedding Dresses</h2>
         <p>The Best Rental Stuffs</p>
         <button className='banner-btn'>Get Now</button>
         </div>
-      <img className="d-block w-100" src="https://wordpress.templatemela.com/woo/WCM05/WCM050119/wp-content/uploads/2019/08/Sub-banner-02.jpg" alt="Second slide"/>
+      <img className="d-block w-100" src={dress} alt="Second slide"/>
     </div>
     <div className="carousel-item">
+    <div style={{width:'100%',height:'100%',position:'absolute', background:'#000',opacity:'0.5'}}></div>
     <div className='banner-title'>
-        <h1>Get Your stuff </h1>
-        <h2>Rental Dinner Sets</h2>
-        <p>With Best Security</p>
+        <h1>Get a Sports Bike On Rent </h1>
+        <h2>KTM 360 On Rent</h2>
+        <p>Get Best sports bikes on rent hourly or daily on affordable charges</p>
         <button className='banner-btn'>Get Now</button>
         </div>
-      <img className="d-block w-100" src="https://wordpress.templatemela.com/woo/WCM05/WCM050119/wp-content/uploads/2019/08/Cms-banner-01.jpg" alt="Third slide" />
+      <img className="d-block w-100" src={bike} alt="Third slide" />
     </div>
   </div>
   <a className="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
