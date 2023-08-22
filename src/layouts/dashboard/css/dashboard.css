@@ -1,5 +1,8 @@
 .dashboard{
     height: 100vh;
+    overflow-y: auto;
+
+    
 }
 .side-button{
     margin-top: 10px;

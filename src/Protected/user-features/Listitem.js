@@ -4,6 +4,8 @@ import 'antd/dist/antd.css';
 import { Select } from 'antd';
 import { postRequest } from '../../requests/request';
 import Categorylist from '../../List/category';
+import Modal from '../../components/Modal/Modal';
+import { toast } from 'react-hot-toast';
 const { Option } = Select;
 
 const Listitem = (props) => {
@@ -12,7 +14,9 @@ const Listitem = (props) => {
     const [chargesType,setChargesType]=useState("")
     const [category,setCategory]=useState("")
     const [message,setMessage]=useState("")
-    const [selctedImages,setSelected]=useState([])
+    const [selctedImages,setSelected]=useState([]);
+    const [isOpen,setIsOpen]=useState(false);
+
   // const fileArray=[]
   const [fileArray,setFileArray]=useState([])
     const addFile=(e)=>{
@@ -45,6 +49,7 @@ const Listitem = (props) => {
 
     
     const listItem=async(e)=>{
+        setIsOpen(true)
         e.preventDefault()
         if(data.name===""||data.charges===""||category===""||chargesType===""){
             alert('all fields are required')
@@ -74,8 +79,15 @@ const Listitem = (props) => {
 
         }
         const listed=await postRequest('/listitem',details)
-        if(listed)
-        setMessage("your item listed succesfully")
+        if(listed){
+
+            setMessage("your item listed succesfully");
+            setIsOpen(false)
+            return toast.success('your item listed succesfully')
+        }
+
+
+
     }
     return (
         <div className='profile-mid-item'>
@@ -137,6 +149,10 @@ const Listitem = (props) => {
                     <button onClick={listItem}>List item</button>
                 </form>
             </div>
+            <Modal isOpen={isOpen}>
+          <h1 style={{color:'#fff'}}>Listing Your Item Please wait...</h1>
+
+        </Modal>
         </div>
     )
 }

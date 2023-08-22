@@ -1,0 +1,21 @@
+.solutions{
+    width: 90%;
+    margin: auto;
+    
+}
+.solve-card{
+    width: 400px;
+}
+.solutions-container{
+    display: flex;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.solve-card img{
+    height: 200px;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

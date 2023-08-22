@@ -5,10 +5,12 @@ import { useSelector } from 'react-redux'
 import Listitem from '../Protected/user-features/Listitem'
 import Youritems from '../Protected/user-features/Youritems'
 import Profileview from '../Protected/user-features/Profileview'
+import Protected from '../Protected/Protected'
 
 
 const DashboardRoutes = () => {
-    const user=useSelector((state)=>state.user.value)
+    const user=useSelector((state)=>state.user.value);
+  
     return (
         <Routes>
             <Route element={<Dashboard />}>

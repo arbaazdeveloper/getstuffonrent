@@ -1,0 +1,29 @@
+.category-list-btn{
+    height: 100px;
+    width: 150px;
+    border: 1px solid #dadada;
+    background: #fff;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.5s ease;
+
+}
+.icon-container{
+    height: 30px;
+    width: 30px;
+}
+.category-list-btn:hover{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.category-view-list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+}

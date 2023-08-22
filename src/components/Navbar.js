@@ -25,7 +25,7 @@ const Navbar = () => {
          {
            key: '2',
            label: (
-             <Link to='/profile' >
+             <Link to='/dashboard/list-item' >
               Profile
              </Link>
            ),

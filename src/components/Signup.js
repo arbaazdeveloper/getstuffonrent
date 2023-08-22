@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import { addValue } from '../redux-feature/signupdata';
 import { addCode } from '../redux-feature/code';
 import { useNavigate } from 'react-router-dom';
+import Modal from './Modal/Modal';
 
 const Signup = () => {
     const navigate=useNavigate()
@@ -14,6 +15,7 @@ const Signup = () => {
     const[city,setCity]=useState()
     const [adress,setAdress]=useState()
     const [password,setPassword]=useState()
+    const [isOpen,setIsOpen]=useState(false);
     let notValid
     const[found,setFound]=useState('');
     const checkValidContact=(e)=>{
@@ -28,7 +30,8 @@ const Signup = () => {
         
     }
     const VerifyMail= async(e)=>{
-        e.preventDefault()
+        e.preventDefault();
+        setIsOpen(true)
 
       const mycode=Math.floor(1000 + Math.random() * 9000)
       const data={
@@ -95,6 +98,10 @@ const Signup = () => {
             </div>
             <button onClick={VerifyMail}>Sign up</button>
         </form>
+        <Modal isOpen={isOpen}>
+          <h1 style={{color:'#fff'}}>Verifying Please wait...</h1>
+
+        </Modal>
     </div>
   )
 }

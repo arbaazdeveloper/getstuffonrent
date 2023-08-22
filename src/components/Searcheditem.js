@@ -4,6 +4,7 @@ import { getRequest } from '../requests/request'
 import { Image } from 'cloudinary-react'
 import { capitalizeFirstLetter } from '../requests/request';
 import Spinner from './Spinner';
+import PrimaryCard from './cards/PrimaryCard';
 
 
 const Searcheditem = () => {
@@ -34,7 +35,7 @@ const Searcheditem = () => {
            
                 <h1 className='not-found-message'>{message}</h1>
                 <div className='results-list'>
-                    {items.map((i) => {
+                    {/* {items.map((i) => {
                         return <div key={i._id} className='item-cards' >
                             <Image cloudName='dwl4ftefk' publicId={`https://res.cloudinary.com/dwl4ftefk/image/upload/v1659520656/${i.images[0]}`}></Image>
                             <h2 onClick={() => navigate(`/item/${i._id}`)}>{capitalizeFirstLetter(i.title)}</h2>
@@ -43,7 +44,14 @@ const Searcheditem = () => {
                             <button onClick={() => navigate(`/item/${i._id}`)} className='light-btn book-btn'>Get on rent</button>
                         </div>
 
-                    })}</div>
+                    })} */}
+                     {items.map((item)=>{
+                return <>
+                <PrimaryCard title={item.title} id={item._id} images={item.images} charges={item.charges} chargesType={item.chargesType}/>
+                </>
+            })}
+                    
+            </div>
             </div>
 
         </div>

@@ -20,6 +20,7 @@ const store=configureStore(
   currentItem:currentItem
   
 }})
+//https://getstuffonrentapi.onrender.com
 root.render(
   <React.StrictMode>
    <Provider store={store}>

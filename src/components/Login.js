@@ -6,6 +6,9 @@ import { postRequest ,getRequest} from '../requests/request';
 import { Link, useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import { setUser } from '../redux-feature/user';
+import { toast } from 'react-hot-toast';
+import Modal from './Modal/Modal';
+
 
 const Login = () => {
   const isAuth=useSelector((state)=>state.isAuth.value)
@@ -14,8 +17,10 @@ const Login = () => {
   const[email,setEmail]=useState('')
   const[password,setPassword]=useState('')
   const[error,setError]=useState('')
+  const [isOpen,setIsOpen]=useState(false)
   const doLogin=async (e)=>{
     e.preventDefault()
+    setIsOpen(true)
     const data={
       email:email,
       password:password
@@ -24,16 +29,20 @@ const Login = () => {
     const result=await postRequest('/login',data)
     if(result.message==='Email not found'){
       setError('Email not found')
-      return
+      setIsOpen(false)
+
+      return toast.error('Email not found')
     }
     if(result.message==='Login with correct credentials'){
+      setIsOpen(false)
       setError('Login with correct credentials')
-      return
+      return toast.error('Login with correct credentials')
     }
     localStorage.setItem('loginkey',result.token)
     dispatch(setIsAuth({login:true}))
     dispatch(setUser(await getRequest('/getuser')))
-    navigate('/dashboard/list-item')
+    navigate('/dashboard/list-item');
+    setIsOpen(false)
   
   }
   useEffect(()=>{
@@ -68,7 +77,11 @@ const Login = () => {
             </div>
 
         </div>
-        
+      
+        <Modal isOpen={isOpen}>
+          <h1 style={{color:'#fff'}}>Please wait...</h1>
+
+        </Modal>
     </div>
   )
 }

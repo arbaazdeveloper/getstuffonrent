@@ -1,0 +1,39 @@
+.primary-card{
+    width: 100%;
+    border: 1px solid #b6b4b4;
+    padding: 20px;
+    border-radius: 22px;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center;
+    justify-content: center; */
+    cursor: pointer;
+    margin: 0.75rem;
+    margin-bottom: 10px;
+    
+}
+.primary-card span{
+    font-size: 25px;
+    font-weight: 600;
+    margin-bottom: 10px;
+
+}
+.primay-card-image{
+    height: 200px;
+    width: 100%;
+    border-radius: 22px;
+
+}
+.primary-card button{
+    background: #e09654;
+    padding: 10px;
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+}
+@media (min-width: 1024px){
+    .primary-card {
+        width: 31.333333%;
+    }
+}
+

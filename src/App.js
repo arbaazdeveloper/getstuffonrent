@@ -3,7 +3,7 @@ import './App.css';
 import Header from './components/Header';
 import Navbar from './components/Navbar';
 import 'antd/dist/antd.css';
-import { BrowserRouter,Routes,Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './components/Home';
 import Blog from './components/Blog';
 import About from './components/About';
@@ -13,7 +13,7 @@ import Protected from './Protected/Protected';
 import Profile from './Protected/Profile';
 import { useEffect, useState } from 'react';
 import { getRequest } from './requests/request';
-import { useDispatch ,useSelector} from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { setIsAuth } from './redux-feature/isauth';
 import Signup from './components/Signup';
 import Verifymail from './components/Verifymail';
@@ -26,49 +26,50 @@ import { setUser } from './redux-feature/user';
 import Error from './components/Error';
 import { ErrorBoundry } from './components/ErrorBoundry';
 import DashboardRoutes from './routes/DashboardRoutes';
+import { Toaster } from 'react-hot-toast';
 
 
 function App() {
-// const [isAuth,setIsAuth]=useState({})
-const isAuth=useSelector((state)=>state.isAuth.value)
-const dispatch=useDispatch()
- const setAuth=async ()=>{
- dispatch(setIsAuth(await getRequest('/clientauth')))
- dispatch(setUser(await getRequest('/getuser')))
- }
-  useEffect(()=>{
+  // const [isAuth,setIsAuth]=useState({})
+  const isAuth = useSelector((state) => state.isAuth.value)
+  const dispatch = useDispatch()
+  const setAuth = async () => {
+    dispatch(setIsAuth(await getRequest('/clientauth')))
+    dispatch(setUser(await getRequest('/getuser')))
+  }
+  useEffect(() => {
     setAuth()
-  
-  },[])
+
+  }, [])
   return (
     <div className='main-body'>
       <BrowserRouter>
-   <Header />
-   <Navbar/>
-   <ErrorBoundry>
+        <Header />
+        <Navbar />
+        <ErrorBoundry>
 
- <Routes>
-<Route path='/' element={ <Home />}/>
-<Route path='/blog' element={ <Blog />}/>
-<Route path='/about' element={ <About />}/>
-<Route path='/contact' element={ <Contact />}/>
-<Route path='/login' element={ <Login />}/>
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/blog' element={<Blog />} />
+            <Route path='/about' element={<About />} />
+            <Route path='/contact' element={<Contact />} />
+            <Route path='/login' element={<Login />} />
 
-<Route path='/dashboard/*' element={<DashboardRoutes/>}/>
-<Route path='/profile' element={<Protected isAuth={isAuth.login} Component={<Profile />}/>}/> 
-<Route path='/signup' element={<Signup/>}/>
-<Route path='/verifyemail' element={<Verifymail/>}/>
-<Route path='/search/:query' element={<Searcheditem/>}/>
-<Route path='/item/:id' element={<Item/>}/>
-<Route path='/getitem/:id' element={<Getitem/>}/>
-<Route path='/confirm' element={<Protected isAuth={isAuth.login} Component={<Confirm/>}/>}/> 
-<Route path='*' element={ <Error/>}/>
+            <Route path='/dashboard/*' element={<Protected isAuth={isAuth.login} Component={<DashboardRoutes />}/>} />
+            <Route path='/profile' element={<Protected isAuth={isAuth.login} Component={<Profile />} />} />
+            <Route path='/signup' element={<Signup />} />
+            <Route path='/verifyemail' element={<Verifymail />} />
+            <Route path='/search/:query' element={<Searcheditem />} />
+            <Route path='/item/:id' element={<Item />} />
+            <Route path='/getitem/:id' element={<Getitem />} />
+            <Route path='/confirm' element={<Protected isAuth={isAuth.login} Component={<Confirm />} />} />
+            <Route path='*' element={<Error />} />
 
- </Routes>
-   </ErrorBoundry>
- <Footer/>
+          </Routes>
+        </ErrorBoundry>
+        <Footer />
       </BrowserRouter>
-   
+      <Toaster />
     </div>
   );
 }

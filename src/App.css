@@ -106,7 +106,7 @@
   transition: 0.5s ease-in-out;
   
 animation-duration: 0.7s;
-animation-name: animate-fade;
+/* animation-name: animate-fade; */
 animation-delay: 0.5s;
 animation-fill-mode: backwards
  
@@ -118,7 +118,7 @@ animation-fill-mode: backwards
   transition: 0.5s ease-in-out;
   
 animation-duration: 0.7s;
-animation-name: animate-fade;
+/* animation-name: animate-fade; */
 animation-delay: 0.3s;
 animation-fill-mode: backwards
  
@@ -171,7 +171,10 @@ z-index: 20;
   border: none ;
   background: #e09654;
   color: #fff;
+  border-radius: 10px;
+  width: 100px;
 }
+
 .profile-image{
   display: flex;
   flex-direction: column;
@@ -203,6 +206,11 @@ display: none;
   z-index: 10;
   color: #eb8933e8;
 }
+.home-card-container{
+  display: flex;
+  flex-wrap: wrap;
+  
+}
 .side-item{
  position: absolute;
  background:#282c34;
@@ -212,8 +220,10 @@ display: none;
  white-space:nowrap;
  height: 100%;
  padding-bottom: 100px;
- transition: margin-left .5s;
+ transition: 0.5s ease-in-out;
  width: 300px;
+ transform: translateX(-100%);
+
 }
 .dasboard-layout{
   height: 100vh;
@@ -251,8 +261,9 @@ display: none;
   transition: 0.9s ease;
   z-index: 1;
 }
-.side-bar.active-sidebar{
-  left: 0 !important;
+.side-item.active-sidebar{
+  transform: translateX(0);
+  
 }
 .close-sidebar{
   position: absolute;
@@ -279,6 +290,16 @@ display: none;
 .open-btn{
   position: absolute;
   margin:30px;
+  padding:10px;
+  font-size:20px;
+  background: #FFF;
+  border: none;
+  border-radius: 5px;
+  width:60px;
+}
+.close-btn{
+  position: absolute;
+ 
   padding:10px;
   font-size:20px;
   background: #FFF;
