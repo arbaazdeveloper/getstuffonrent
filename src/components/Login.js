@@ -33,7 +33,7 @@ const Login = () => {
     localStorage.setItem('loginkey',result.token)
     dispatch(setIsAuth({login:true}))
     dispatch(setUser(await getRequest('/getuser')))
-    navigate('/profile')
+    navigate('/dashboard/list-item')
   
   }
   useEffect(()=>{

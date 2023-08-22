@@ -25,6 +25,7 @@ import Confirm from './Protected/Confirm';
 import { setUser } from './redux-feature/user';
 import Error from './components/Error';
 import { ErrorBoundry } from './components/ErrorBoundry';
+import DashboardRoutes from './routes/DashboardRoutes';
 
 
 function App() {
@@ -52,6 +53,8 @@ const dispatch=useDispatch()
 <Route path='/about' element={ <About />}/>
 <Route path='/contact' element={ <Contact />}/>
 <Route path='/login' element={ <Login />}/>
+
+<Route path='/dashboard/*' element={<DashboardRoutes/>}/>
 <Route path='/profile' element={<Protected isAuth={isAuth.login} Component={<Profile />}/>}/> 
 <Route path='/signup' element={<Signup/>}/>
 <Route path='/verifyemail' element={<Verifymail/>}/>
